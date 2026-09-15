@@ -5,14 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Mi tarjeta NFC</title>
+    <meta name="description" content="Crea y personaliza tu tarjeta digital para compartir tus enlaces.">
+    <meta name="theme-color" content="#15151f">
+
+    <title>Perfil NFC | Tarjeta digital</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <main class="card">
+    <main class="card" aria-label="Tarjeta digital de perfil">
+
+        <button class="customize-button" id="customizeButton" type="button" aria-expanded="false">
+            Editar tarjeta
+        </button>
 
         <!-- PERFIL -->
 
@@ -91,6 +98,93 @@
         </footer>
 
     </main>
+
+    <aside class="login-panel" id="loginPanel" aria-hidden="true">
+        <div class="customizer-header">
+            <div>
+                <p class="eyebrow">Área privada</p>
+                <h2>Iniciar sesión</h2>
+            </div>
+            <button class="close-button" id="closeLogin" type="button" aria-label="Cerrar inicio de sesión">&times;</button>
+        </div>
+
+        <p class="panel-copy">Inicia sesión para editar tu tarjeta y guardar los cambios.</p>
+
+        <form id="loginForm" class="login-form">
+            <label>
+                Usuario
+                <input id="loginUser" type="text" autocomplete="username" required>
+            </label>
+            <label>
+                Contraseña
+                <input id="loginPassword" type="password" autocomplete="current-password" required>
+            </label>
+            <p class="login-hint">Demo: usuario <strong>sammu</strong> y contraseña <strong>1234</strong></p>
+            <p class="login-error" id="loginError" role="alert"></p>
+            <button class="save-button" type="submit">Entrar</button>
+        </form>
+    </aside>
+
+    <aside class="customizer" id="customizer" aria-hidden="true">
+        <div class="customizer-header">
+            <div>
+                <p class="eyebrow">Editor</p>
+                <h2>Personaliza tu tarjeta</h2>
+            </div>
+            <button class="close-button" id="closeCustomizer" type="button" aria-label="Cerrar editor">&times;</button>
+        </div>
+
+        <div class="editor-actions">
+            <button class="save-button" id="saveButton" type="button">Guardar cambios</button>
+            <button class="logout-button" id="logoutButton" type="button">Cerrar sesión</button>
+        </div>
+
+        <label>
+            Foto de perfil
+            <input id="profileInput" type="file" accept="image/*">
+        </label>
+
+        <label>
+            Nombre
+            <input id="nameInput" type="text" maxlength="40">
+        </label>
+
+        <label>
+            Usuario
+            <input id="usernameInput" type="text" maxlength="40">
+        </label>
+
+        <label>
+            Descripción
+            <textarea id="descriptionInput" rows="3" maxlength="140"></textarea>
+        </label>
+
+        <div class="color-grid">
+            <label>
+                Fondo
+                <input id="backgroundColorInput" type="color" value="#15151f">
+            </label>
+            <label>
+                Color principal
+                <input id="accentColorInput" type="color" value="#357cff">
+            </label>
+        </div>
+
+        <div class="link-editor">
+            <div class="section-title">
+                <span>Enlaces</span>
+                <button id="addLinkButton" class="small-button" type="button">Añadir</button>
+            </div>
+            <div id="linkFields"></div>
+        </div>
+
+        <button class="reset-button" id="resetButton" type="button">Restablecer cambios</button>
+    </aside>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
 
 </body>
 </html>
